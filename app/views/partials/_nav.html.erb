@@ -1,0 +1,14 @@
+<nav>
+  <a href="<%= root_path %>">Home</a>
+  <a href="<%= directors_path %>">Directors</a>
+  <a href="<%= movies_path %>">Movies</a>
+  <a href="<%= actors_path %>">Actors</a>
+
+  <% if current_user %>
+    <%= link_to "Log out", logout_path %>
+  <% else %>
+    <%= link_to "Register", new_user_path %>
+    <%= link_to "Log in", login_path %>
+  <% end %>
+</nav>
+<hr>

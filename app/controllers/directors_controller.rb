@@ -3,7 +3,7 @@ class DirectorsController < ApplicationController
   def index
     @directors = Director.all
   end
-  
+
   def new
     @director = Director.new
   end
@@ -11,7 +11,6 @@ class DirectorsController < ApplicationController
   def create
     Director.create(director_params)
     redirect_to directors_path
-
   end
 
   private
