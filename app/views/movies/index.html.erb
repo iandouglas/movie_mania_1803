@@ -1,6 +1,9 @@
 <h1> All Movies </h1>
 
 <% @movies.each do |movie| %>
-  <h2><%=movie.title%></h2>
-  <p><%=movie.description%></p>
+  <div id="movie_<%= movie.id %>">
+    <h2><%= movie.title %></h2>
+    <p><%= movie.description %></p>
+    <%= button_to 'Add this movie to cart', carts_path(movie_id: movie.id) %>
+  </div>
 <% end %>

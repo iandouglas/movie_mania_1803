@@ -10,5 +10,7 @@
     <%= link_to "Register", new_user_path %>
     <%= link_to "Log in", login_path %>
   <% end %>
+
+  <p>Cart: <%= @cart.total_item_count %> </p>
 </nav>
 <hr>

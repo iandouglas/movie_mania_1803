@@ -29,6 +29,26 @@ describe 'Visitor' do
       click_on "Log out"
       expect(current_path).to eq(root_path)
     end
+    it 'should not log in the user if credentials are bad' do
+      username = 'octocat'
+      password = 'password'
+      user = User.create!(username: username, password: password)
+
+      visit '/'
+
+      click_on "Log in"
+
+      expect(current_path).to eq(login_path)
+
+      fill_in :username, with: username
+      fill_in :password, with: 'different'
+      within('#login_form') do
+        click_on "Log in"
+      end
+
+      expect(current_path).to eq(login_path)
+      expect(page).to have_link("Log in")
+    end
   end
 
   context 'fills out a registration form' do

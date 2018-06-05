@@ -13,7 +13,7 @@ describe 'Visitor' do
     fill_in :movie_description, with: description
     click_on 'Create Movie'
 
-    expect(current_path).to eq("/movies/#{Movie.last.id}")
+    expect(current_path).to eq("/movies/#{Movie.last.slug}")
 
     expect(page).to have_content(director.name)
     expect(page).to have_content(movie_title)
